@@ -39,3 +39,7 @@
     display: grid;
     place-items: center;
 }
+
+button {
+    width: 7rem;
+}
