@@ -4,8 +4,8 @@
 
 .container {
     background: #0b2434;
-    min-height: 360px;
-    min-width: 360px;
+    min-height: 500px;
+    min-width: 500px;
     padding: 20px;
     display: grid;
     place-items: center;
@@ -13,7 +13,7 @@
 
 .game {
     background: #f5f5f5;
-    min-height: 320px;
-    min-width: 320px;
     border-radius: 20px;
+    min-height: 460px;
+    min-width: 460px;
 }
