@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Game from "./components/Game";
 
 function App() {
-    return <div className='App'></div>;
+    return (
+        <main className='App'>
+            <Game />
+        </main>
+    );
 }
 
 export default App;
