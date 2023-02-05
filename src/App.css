@@ -5,11 +5,12 @@
 
 .App {
     background: #0b2434;
-    min-height: 500px;
-    min-width: 500px;
+    height: 500px;
+    width: 500px;
     padding: 20px;
-    display: grid;
     place-items: center;
+    display: grid;
+    color: #2b283a;
 }
 
 .game {
