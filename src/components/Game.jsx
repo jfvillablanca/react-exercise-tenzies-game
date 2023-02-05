@@ -5,5 +5,15 @@ export default function Game() {
     const dice = keys.map((keyValue) => (
         <Die key={keyValue} value={keyValue} />
     ));
-    return <div className='game'>{dice}</div>;
+    return (
+        <div className='game'>
+            <h1>Tenzies</h1>
+            <section>
+                Roll until all dice are the same. Click each die to freeze it at
+                its current value between rolls.
+            </section>
+            <div>{dice}</div>
+            <button>Roll</button>
+        </div>
+    );
 }
