@@ -2,7 +2,7 @@
     margin: 0 auto;
 }
 
-.container {
+.App {
     background: #0b2434;
     min-height: 500px;
     min-width: 500px;
@@ -16,4 +16,7 @@
     border-radius: 20px;
     min-height: 460px;
     min-width: 460px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
 }
