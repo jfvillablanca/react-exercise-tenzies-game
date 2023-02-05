@@ -16,10 +16,14 @@
 .game {
     background: #f5f5f5;
     border-radius: 20px;
-    min-height: 460px;
-    min-width: 460px;
+    height: 90%;
+    width: 90%;
+    padding: 0 1rem;
     display: grid;
     align-items: center;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+}
+
     grid-template-columns: repeat(5, 1fr);
 }
 
