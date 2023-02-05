@@ -24,7 +24,19 @@
     grid-template-rows: 1fr 1fr 2fr 1fr;
 }
 
+.game > h1 {
+    align-self: end;
+}
+
+section {
+    text-align: center;
+}
+
+.game > div {
+    display: grid;
+    align-items: center;
     grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
 }
 
 .die {
