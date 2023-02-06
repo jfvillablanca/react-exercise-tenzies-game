@@ -85,7 +85,7 @@ export default function Game() {
                 className={checkDieFaceEquality() ? "reset" : ""}
             >
                 {checkDieFaceEquality()
-                    ? `Reset Game`
+                    ? `Score: ${rolls} | Reset?`
                     : rolls > 0
                     ? `Rolls: ${rolls}`
                     : `Roll`}

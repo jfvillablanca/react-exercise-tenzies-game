@@ -64,4 +64,5 @@ button {
 
 button.reset {
     background: #fa6400;
+    width: 11rem;
 }
