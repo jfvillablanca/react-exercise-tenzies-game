@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 import Die from "./Die.jsx";
 
 export default function Game() {
     const getRandomRoll = () => Math.ceil(Math.random() * 6);
 
     const [dieValues, setDieValues] = useState(
-        Array.from({ length: 10 }, (_, i) => ({
-            key: i,
+        Array.from({ length: 10 }, () => ({
+            key: nanoid(),
             val: getRandomRoll(),
             fixedVal: false,
         }))
