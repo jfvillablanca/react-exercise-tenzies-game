@@ -6,13 +6,15 @@ import Die from "./Die.jsx";
 export default function Game() {
     const getRandomRoll = () => Math.ceil(Math.random() * 6);
 
-    const [dieValues, setDieValues] = useState(
-        Array.from({ length: 10 }, () => ({
+    const getNewDiceSet = () => {
+        return Array.from({ length: 10 }, () => ({
             id: nanoid(),
             val: getRandomRoll(),
             isFrozen: false,
-        }))
-    );
+        }));
+    };
+
+    const [dieValues, setDieValues] = useState(getNewDiceSet());
 
     const freezeDieRoll = (id) => {
         setDieValues((prevDieValues) => {
@@ -51,13 +53,7 @@ export default function Game() {
     };
 
     const resetGame = () => {
-        setDieValues(
-            Array.from({ length: 10 }, () => ({
-                id: nanoid(),
-                val: getRandomRoll(),
-                isFrozen: false,
-            }))
-        );
+        setDieValues(getNewDiceSet());
     };
 
     return (
