@@ -12,6 +12,17 @@ export default function Game() {
         }))
     );
 
+    const freezeDieRoll = (key) => {
+        console.log(key);
+        setDieValues((prevDieValues) => {
+            return prevDieValues.map((prevDieValue) =>
+                prevDieValue.key === key
+                    ? { ...prevDieValue, fixedVal: !prevDieValue.fixedVal }
+                    : prevDieValue
+            );
+        });
+    };
+
     const dice = dieValues.map((value) => (
         <Die key={value.key} value={value} handleClick={freezeDieRoll} />
     ));
