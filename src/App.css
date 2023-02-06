@@ -61,3 +61,7 @@ section {
 button {
     width: 8rem;
 }
+
+button.reset {
+    background: #fa6400;
+}
