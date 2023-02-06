@@ -15,6 +15,7 @@ export default function Game() {
     };
 
     const [dieValues, setDieValues] = useState(getNewDiceSet());
+    const [rolls, setRolls] = useState(0);
 
     const freezeDieRoll = (id) => {
         setDieValues((prevDieValues) => {
@@ -35,6 +36,7 @@ export default function Game() {
     ));
 
     const rollTheDice = () => {
+        setRolls((prevRolls) => prevRolls + 1);
         setDieValues((prevDieValues) => {
             return prevDieValues.map((prevDieValue) =>
                 prevDieValue.isFrozen
@@ -53,6 +55,7 @@ export default function Game() {
     };
 
     const resetGame = () => {
+        setRolls(0);
         setDieValues(getNewDiceSet());
     };
 
@@ -66,7 +69,11 @@ export default function Game() {
             </section>
             <div>{dice}</div>
             <button onClick={checkDieFaceEquality() ? resetGame : rollTheDice}>
-                {checkDieFaceEquality() ? `Reset Game` : `Roll`}
+                {checkDieFaceEquality()
+                    ? `Reset Game`
+                    : rolls > 0
+                    ? `Rolls: ${rolls}`
+                    : `Roll`}
             </button>
         </div>
     );
