@@ -45,6 +45,16 @@ export default function Game() {
         );
     };
 
+    const resetGame = () => {
+        setDieValues(
+            Array.from({ length: 10 }, () => ({
+                key: nanoid(),
+                val: getRandomRoll(),
+                isFrozen: false,
+            }))
+        );
+    };
+
     return (
         <div className='game'>
             <h1>Tenzies</h1>
@@ -53,7 +63,9 @@ export default function Game() {
                 its current value between rolls.
             </section>
             <div>{dice}</div>
+            <button onClick={checkDieFaceEquality() ? resetGame : rollTheDice}>
                 {checkDieFaceEquality() ? `Reset Game` : `Roll`}
+            </button>
         </div>
     );
 }
