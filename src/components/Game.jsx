@@ -2,9 +2,6 @@ import { useState } from "react";
 import Die from "./Die.jsx";
 
 export default function Game() {
-    const keys = Array.from({ length: 10 }, (_, i) => i + 1);
-    const dice = keys.map((keyValue) => (
-        <Die key={keyValue} value={keyValue} />
     const getRandomRoll = () => Math.ceil(Math.random() * 6);
 
     const [dieValues, setDieValues] = useState(
@@ -15,6 +12,8 @@ export default function Game() {
         }))
     );
 
+    const dice = dieValues.map((value) => (
+        <Die key={value.key} value={value} handleClick={freezeDieRoll} />
     ));
     return (
         <div className='game'>
