@@ -15,7 +15,9 @@ export default function Game() {
     };
 
     const [dieValues, setDieValues] = useState(getNewDiceSet());
-    const [lowestRollCount, setLowestRollCount] = useState(Infinity);
+    const [lowestRollCount, setLowestRollCount] = useState(
+        JSON.parse(localStorage.getItem("tenzies-high-score")) || Infinity
+    );
     const [rolls, setRolls] = useState(0);
 
     const freezeDieRoll = (id) => {
@@ -67,6 +69,13 @@ export default function Game() {
             );
         }
     }, [dieValues]);
+
+    useEffect(() => {
+        localStorage.setItem(
+            "tenzies-high-score",
+            JSON.stringify(lowestRollCount)
+        );
+    }, [lowestRollCount]);
 
     return (
         <div className='game'>
