@@ -9,7 +9,7 @@ export default function Game() {
         Array.from({ length: 10 }, () => ({
             key: nanoid(),
             val: getRandomRoll(),
-            fixedVal: false,
+            isFrozen: false,
         }))
     );
 
@@ -18,7 +18,7 @@ export default function Game() {
         setDieValues((prevDieValues) => {
             return prevDieValues.map((prevDieValue) =>
                 prevDieValue.key === key
-                    ? { ...prevDieValue, fixedVal: !prevDieValue.fixedVal }
+                    ? { ...prevDieValue, isFrozen: !prevDieValue.isFrozen }
                     : prevDieValue
             );
         });
@@ -31,7 +31,7 @@ export default function Game() {
     const rollTheDice = () => {
         setDieValues((prevDieValues) => {
             return prevDieValues.map((prevDieValue) =>
-                prevDieValue.fixedVal
+                prevDieValue.isFrozen
                     ? { ...prevDieValue, val: prevDieValue.val }
                     : { ...prevDieValue, val: getRandomRoll() }
             );
