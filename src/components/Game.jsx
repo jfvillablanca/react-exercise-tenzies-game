@@ -14,7 +14,6 @@ export default function Game() {
     );
 
     const freezeDieRoll = (key) => {
-        console.log(key);
         setDieValues((prevDieValues) => {
             return prevDieValues.map((prevDieValue) =>
                 prevDieValue.key === key
