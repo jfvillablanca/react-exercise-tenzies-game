@@ -37,6 +37,14 @@ export default function Game() {
         });
     };
 
+    const checkDieFaceEquality = () => {
+        return dieValues.every(
+            (dieValue) =>
+                dieValue.val === dieValues[0].val &&
+                dieValue.isFrozen === dieValues[0].isFrozen
+        );
+    };
+
     return (
         <div className='game'>
             <h1>Tenzies</h1>
@@ -45,7 +53,7 @@ export default function Game() {
                 its current value between rolls.
             </section>
             <div>{dice}</div>
-            <button onClick={rollTheDice}>Roll</button>
+                {checkDieFaceEquality() ? `Reset Game` : `Roll`}
         </div>
     );
 }
