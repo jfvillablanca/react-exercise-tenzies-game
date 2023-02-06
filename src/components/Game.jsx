@@ -4,6 +4,7 @@ export default function Game() {
     const keys = Array.from({ length: 10 }, (_, i) => i + 1);
     const dice = keys.map((keyValue) => (
         <Die key={keyValue} value={keyValue} />
+    const getRandomRoll = () => Math.ceil(Math.random() * 6);
     ));
     return (
         <div className='game'>
