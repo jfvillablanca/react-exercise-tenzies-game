@@ -80,7 +80,10 @@ export default function Game() {
                 )}
             </section>
             <div>{dice}</div>
-            <button onClick={checkDieFaceEquality() ? resetGame : rollTheDice}>
+            <button
+                onClick={checkDieFaceEquality() ? resetGame : rollTheDice}
+                className={checkDieFaceEquality() ? "reset" : ""}
+            >
                 {checkDieFaceEquality()
                     ? `Reset Game`
                     : rolls > 0
