@@ -26,6 +26,17 @@ export default function Game() {
     const dice = dieValues.map((value) => (
         <Die key={value.key} value={value} handleClick={freezeDieRoll} />
     ));
+
+    const rollTheDice = () => {
+        setDieValues((prevDieValues) => {
+            return prevDieValues.map((prevDieValue) =>
+                prevDieValue.fixedVal
+                    ? { ...prevDieValue, val: prevDieValue.val }
+                    : { ...prevDieValue, val: getRandomRoll() }
+            );
+        });
+    };
+
     return (
         <div className='game'>
             <h1>Tenzies</h1>
@@ -34,7 +45,7 @@ export default function Game() {
                 its current value between rolls.
             </section>
             <div>{dice}</div>
-            <button>Roll</button>
+            <button onClick={rollTheDice}>Roll</button>
         </div>
     );
 }
