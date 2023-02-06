@@ -7,16 +7,16 @@ export default function Game() {
 
     const [dieValues, setDieValues] = useState(
         Array.from({ length: 10 }, () => ({
-            key: nanoid(),
+            id: nanoid(),
             val: getRandomRoll(),
             isFrozen: false,
         }))
     );
 
-    const freezeDieRoll = (key) => {
+    const freezeDieRoll = (id) => {
         setDieValues((prevDieValues) => {
             return prevDieValues.map((prevDieValue) =>
-                prevDieValue.key === key
+                prevDieValue.id === id
                     ? { ...prevDieValue, isFrozen: !prevDieValue.isFrozen }
                     : prevDieValue
             );
@@ -24,7 +24,11 @@ export default function Game() {
     };
 
     const dice = dieValues.map((value) => (
-        <Die key={value.key} value={value} handleClick={freezeDieRoll} />
+        <Die
+            key={value.id}
+            value={value}
+            handleClick={() => freezeDieRoll(value.id)}
+        />
     ));
 
     const rollTheDice = () => {
@@ -48,7 +52,7 @@ export default function Game() {
     const resetGame = () => {
         setDieValues(
             Array.from({ length: 10 }, () => ({
-                key: nanoid(),
+                id: nanoid(),
                 val: getRandomRoll(),
                 isFrozen: false,
             }))
