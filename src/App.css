@@ -53,6 +53,10 @@ section {
     cursor: pointer;
 }
 
+.die.frozen {
+    background: #59E391;
+}
+
 button {
     width: 7rem;
 }
