@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
 import Die from "./Die.jsx";
 
 export default function Game() {
@@ -61,6 +62,7 @@ export default function Game() {
 
     return (
         <div className='game'>
+            {checkDieFaceEquality() && <Confetti />}
             <h1>Tenzies</h1>
             <section>
                 Roll until all dice are the same. Click each die to freeze it at
